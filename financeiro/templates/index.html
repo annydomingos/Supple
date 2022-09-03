@@ -1,3 +1,4 @@
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,32 +7,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
+    {% bootstrap_css %}
 </head>
 
 <body>
-
+{% bootstrap_javascript%}
     <h1>Olá, {{request.user.first_name}}</h1>
     <h3>saldo:</h3>
-    <h3>Adicionar despesa</h3>
+    {% bootstrap_messages %}
+    <h3>Adicionar movimentação:</h3>
     <form action='/submit/' method='post'>
-     {% csrf_token %}
-        <p>
-            <label>Valor
-                <input name="valor" type="number" step="0.01" required>
-            </label>
-        </p>
+    {% csrf_token %}
 
 
+        <p><label>Valor </label></p>
+        <input name="valor" type="number" step="0.01" required>
 
-     <h3>Adicionar ganhos</h3>
+        <p><label>Tipo movimenção</label></p>
 
-        <p>
-            <label>Valor
-                <input name="valor2" type="number" step="0.01" required>
-            </label>
-        </p>
+        <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
+        <input name="carteira" style="display: none;" value="1" type="number">
+
 
         <button type="submit" value='submit'>Enviar</button>
     </form>
 
+
+</body>
 </html>
+
+
+
+
+
+
