@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from financeiro.views import index,index_submit
+from financeiro.views import index,index_submit, test_bootstrap
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('submit/', index_submit, name='index_submit'),
+    path('test_bootstrap/', test_bootstrap, name='test_bootstrap'),
 ]
