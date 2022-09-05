@@ -11,33 +11,31 @@
 </head>
 
 <body>
-{% bootstrap_javascript%}
+    {% bootstrap_javascript%}
     <h1>Olá, {{request.user.first_name}}</h1>
     <h3>saldo:</h3>
     {% bootstrap_messages %}
     <h3>Adicionar movimentação:</h3>
     <form action='/submit/' method='post'>
-    {% csrf_token %}
+        {% csrf_token %}
 
 
-        <p><label>Valor </label></p>
-        <input name="valor" type="number" step="0.01" required>
+        <h1>Adicionar Movimentação</h1>
+        <form action='/submit/' method='post'>
+            <label for="valor" class="select">Selecione:
+                <select name="valor" id="valor">
+                    <option value="ganhos">ganhos</option>
+                    <option value="gastos">gastos</option>
+                    <label>Valor
+                    <input name="valor" type="number" required>
+                </label>
+            </select>
+            <button type="submit " value='submit'>Enviar</button>
+            </label>
+        </form>
 
-        <p><label>Tipo movimenção</label></p>
-
-        <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
-        <input name="carteira" style="display: none;" value="1" type="number">
-
-
-        <button type="submit" value='submit'>Enviar</button>
-    </form>
 
 
 </body>
+
 </html>
-
-
-
-
-
-
