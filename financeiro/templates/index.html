@@ -12,11 +12,11 @@
 
 <body>
     {% bootstrap_javascript%}
-    <h1>Olá, {{request.user.first_name}}</h1>
+    <h1>Olá, {{request.usuario.first_name}}</h1>
     <h3>saldo:</h3>
     {% bootstrap_messages %}
     <h3>Adicionar movimentação:</h3>
-    <form action='/submit/' method='post'>
+    <form action='/submit/' method='POST'>
         {% csrf_token %}
 
 
@@ -32,6 +32,7 @@
         <button type="submit" value='submit'>Enviar</button>
     </form>
 
+    <a href="/login">Logout</a>
 
 </body>
 

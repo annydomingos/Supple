@@ -1,9 +1,12 @@
+import email
 from logging import exception
 from multiprocessing import context
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import MovimentacaoForm
 from .models import Movimentacao
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -39,23 +42,25 @@ def index_submit(request):
     return redirect('/')
 
 
-#def test_bootstrap(request):
-    # if request.method == 'GET':
-    #     form1 = MovimentacaoModelForm()
-    #     return render(request,'test_bootstrap.html')
+def login_user(request):
+    return render(request, 'login.html')
 
+
+def login_submit(request):
     if request.method == 'POST':
-        form1 = MovimentacaoForm(request.POST, request.FILES)
-        if form1.is_valid():
-            form1.save()
-            messages.success(request, 'Movimentação adicionada com sucesso')
-            form1 = MovimentacaoForm()
-        else:
-            messages.error(request, 'Dados inválidos')
-            return render(request, 'test_bootstrap.html ')
-    else:
-        form1 = MovimentacaoForm()
-    context = { form1 : "form1"}
-    print(form1)
-    return render(request, 'test_bootstrap.html', context)
+        if request.POST:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            usuario = authenticate(username=email, password=password)
+            if usuario is not None and usuario.is_active:
+                login(request, usuario)
+                return redirect('/')
+            else:
+                messages.error(request, 'Usuário ou senha inválido')
 
+    return redirect('/')
+
+# @login_required
+def logout_user(request):
+    logout(request)
+    return redirect('/')

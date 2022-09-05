@@ -1,3 +1,4 @@
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,28 +6,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    {% bootstrap_css %}
 </head>
 
 <body>
-    <form method='post'>
-        {% csfr_token %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <form method='POST' action='/submit/'>
+        {% csrf_token %}
 
         <label>Login</label>
-        <input name="login" type="email">
+        <input name="username" type="email" required=True>
 
         <!--lembrar de colocar required nos inputs-->
 
         <label>Senha</label>
-        <input name="senha" type="password">
+        <input name="password" type="password" required=True>
         <!--
         <a href="./paginas/paginainicial.html "></a>-->
-        <button type="submit " value='submit'>Entrar</button>
+        <button type="submit" value='submit'>Entrar</button>
 
 
 
     </form>
-
+ {% for message in messages %}
+    erro {{message}}
+    {% endfor %}
 
 </body>
 
