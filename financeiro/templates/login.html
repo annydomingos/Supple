@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method='post'>
+        {% csfr_token %}
+
+        <label>Login</label>
+        <input name="login" type="email">
+
+        <!--lembrar de colocar required nos inputs-->
+
+        <label>Senha</label>
+        <input name="senha" type="password">
+        <!--
+        <a href="./paginas/paginainicial.html "></a>-->
+        <button type="submit " value='submit'>Entrar</button>
+
+
+
+    </form>
+
+
+</body>
+
+</html>

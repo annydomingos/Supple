@@ -11,13 +11,13 @@
 </head>
 
 <body>
-{% bootstrap_javascript%}
+    {% bootstrap_javascript%}
     <h1>Olá, {{request.user.first_name}}</h1>
     <h3>saldo:</h3>
     {% bootstrap_messages %}
     <h3>Adicionar movimentação:</h3>
     <form action='/submit/' method='post'>
-    {% csrf_token %}
+        {% csrf_token %}
 
 
         <p><label>Valor </label></p>
@@ -34,10 +34,5 @@
 
 
 </body>
+
 </html>
-
-
-
-
-
-

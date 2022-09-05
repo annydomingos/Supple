@@ -39,7 +39,7 @@ def index_submit(request):
     return redirect('/')
 
 
-def test_bootstrap(request):
+#def test_bootstrap(request):
     # if request.method == 'GET':
     #     form1 = MovimentacaoModelForm()
     #     return render(request,'test_bootstrap.html')
