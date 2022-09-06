@@ -15,17 +15,18 @@
     {% bootstrap_messages %}
     <form method='POST' action='/submit/'>
         {% csrf_token %}
+        <h1>Login</h1
 
-        <label>Login</label>
-        <input name="username" type="email" required=True>
 
-        <!--lembrar de colocar required nos inputs-->
+        <label for='username'>Email</label>
+        <input name="username" type="email" required=True><br>
 
-        <label>Senha</label>
+
+        <label for='password'>Senha</label>
         <input name="password" type="password" required=True>
         <!--
         <a href="./paginas/paginainicial.html "></a>-->
-        <button type="submit" value='submit'>Entrar</button>
+        <button type="submit" value='submit' class='btn btn-primary'>Entrar</button>
 
 
 

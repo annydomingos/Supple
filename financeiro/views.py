@@ -1,4 +1,3 @@
-import email
 from logging import exception
 from multiprocessing import context
 from django.shortcuts import render, HttpResponse, redirect
@@ -43,6 +42,8 @@ def index_submit(request):
 
 
 def login_user(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     return render(request, 'login.html')
 
 
@@ -51,16 +52,22 @@ def login_submit(request):
         if request.POST:
             username = request.POST.get('username')
             password = request.POST.get('password')
-            usuario = authenticate(username=email, password=password)
-            if usuario is not None and usuario.is_active:
-                login(request, usuario)
+            user = authenticate(username=username, password=password)
+            if user:
+                messages.sucess(request, 'Login realizado com sucesso')
+                login(request, user)
                 return redirect('/')
             else:
                 messages.error(request, 'Usuário ou senha inválido')
+                return render(request, 'login.html')
 
-    return redirect('/')
+    messages.error('Erro ao logar')
 
-# @login_required
+
+# @login_required(login_url='/login/')
 def logout_user(request):
-    logout(request)
-    return redirect('/')
+    #verificando se o usuário está logado, pois se não estiver logado não como fazer logout
+    if request.user.is_authenticated:
+        logout(request)
+        return render(request,'login.html')
+#depois modificar para direcionar para página inicial, quando tiver uma

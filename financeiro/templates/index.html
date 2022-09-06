@@ -12,7 +12,8 @@
 
 <body>
     {% bootstrap_javascript%}
-    <h1>Olá, {{request.usuario.first_name}}</h1>
+
+    <h1>Olá, {{request.user.username}}</h1>
     <h3>saldo:</h3>
     {% bootstrap_messages %}
     <h3>Adicionar movimentação:</h3>
@@ -32,7 +33,10 @@
         <button type="submit" value='submit'>Enviar</button>
     </form>
 
-    <a href="/login">Logout</a>
+
+    {% if request.user.is_authenticated %}
+        <a href="/logout/">Logout</a>
+    {% endif %}
 
 </body>
 
