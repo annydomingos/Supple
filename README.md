@@ -4,4 +4,6 @@
 
 * Trata-se de uma aplicação que tem o intuito de ser um gerenciador financeiro enquanto ensina à crianças e adolescentes lições valiosas sobre finanças, de uma forma prática, leve e intuitiva.
 
+* Para o desenvolvimento está sendo utilizada a Django, arquitetura MVT.
+
 * Em desenvolvimento
