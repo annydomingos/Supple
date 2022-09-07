@@ -13,9 +13,12 @@ from usuario.models import Usuario
 
 # Create your views here.
 def index(request):
-    movimentacao = Movimentacao.objects.all()
-    context = { movimentacao : 'movimentacao' }
-    return render(request, 'index.html', context)
+    if request.user.is_anonymous:
+        return render(request, 'login.html')
+    else:
+        movimentacao = Movimentacao.objects.all()
+        context = { movimentacao : 'movimentacao' }
+        return render(request, 'index.html', context)
 
 def index_submit(request):
     if request.method == 'POST':
