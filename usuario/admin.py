@@ -14,7 +14,7 @@ class UsuarioAdmin(UserAdmin):
   list_display = ['email', 'first_name', 'last_name', 'is_staff', 'is_superuser']
   readonly_fields = ['last_login', 'date_joined', 'password']
   fieldsets = (
-   ('Login', {'fields' : ('email', 'password')}),
+   ('Login', {'fields' : ('email','password')}),
    ('Informações', {'fields' : ('first_name', 'last_name')}),
    ('Permissões', {'fields' : ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
    ('Datas Importantes', {'fields' : ('last_login', 'date_joined')})
