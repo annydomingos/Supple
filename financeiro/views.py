@@ -85,10 +85,27 @@ def login_submit(request):
     return render(request, 'login.html')
 
 
-# @login_required(login_url='/login/')
 def logout_user(request):
-    #verificando se o usuário está logado, pois se não estiver logado não como fazer logout
     if request.user.is_authenticated:
         logout(request)
         return render(request,'login.html')
 #depois modificar para direcionar para página inicial, quando tiver uma
+
+def extrato(request):
+    if request.user.is_authenticated:
+        return render(request,'extrato.html')
+    else:
+        return redirect('login.html')
+
+
+def pagina_inicial(request):
+    if request.user.is_authenticated:
+        return render(request,'paginainicial.html')
+    else:
+        return redirect('login.html')
+
+def poupanca(request):
+    if request.user.is_authenticated:
+        return render(request,'poupanca.html')
+    else:
+        return redirect('login.html')
