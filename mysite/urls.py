@@ -16,7 +16,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from financeiro.views import index,index_submit, login_user, login_submit, logout_user
+from financeiro.views import index,index_submit, login_user, login_submit, logout_user, extrato, pagina_inicial, poupanca
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,8 +27,12 @@ urlpatterns = [
     path('submit/', index_submit, name='index_submit'),
     path('login/', login_user, name='login'),
     path('login/submit', login_submit, name='login_submit'),
-    path('logout/', logout_user, name='logout')
-]
+    path('logout/', logout_user, name='logout'),
+    path ('extrato/', extrato, name='extrato'),
+    path('pagina_inicial', pagina_inicial, name='pagina_inicial'),
+    path('poupanca', poupanca, name='poupanca'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # include('django.contrib.auth.urls')
 
