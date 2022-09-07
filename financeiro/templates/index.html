@@ -24,11 +24,13 @@
         <p><label>Valor </label></p>
         <input name="valor" type="number" step="0.01" required>
 
-        <p><label>Tipo movimenção</label></p>
+        {% comment %} <p><label>Tipo movimenção</label></p> {% endcomment %}
 
         <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
         <input name="carteira" style="display: none;" value="1" type="number">
 
+        <p><label for="descricao_gasto">Descrição</label></p>
+        <input name="descricao_gasto" type="text">
 
         <button type="submit" value='submit'>Enviar</button>
     </form>

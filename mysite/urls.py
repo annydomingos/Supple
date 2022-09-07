@@ -24,7 +24,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('submit/', index_submit, name='index_submit'),
     path('login/', login_user, name='login'),
-    path('submit/', login_submit, name='login_submit'),
+    path('login/submit', login_submit, name='login_submit'),
     path('logout/', logout_user, name='logout')
 ]
 

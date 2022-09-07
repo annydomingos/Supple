@@ -132,4 +132,4 @@ AUTH_USER_MODEL = 'usuario.Usuario'
 
 LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT = '/accounts/login'
+# LOGOUT_REDIRECT = '/accounts/login'
