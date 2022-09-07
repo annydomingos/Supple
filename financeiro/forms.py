@@ -17,6 +17,7 @@ class MovimentacaoForm(forms.Form):
 class Descricao_gastoForm(forms.Form):
   descricao_gasto = forms.CharField(max_length=127)
 
+
 class LoginForm(forms.Form):
   username = forms.CharField()
   password = forms.CharField(max_length=255)

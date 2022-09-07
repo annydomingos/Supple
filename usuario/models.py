@@ -36,7 +36,7 @@ class Usuario(AbstractUser):
   first_name = models.CharField('Nome', max_length=50)
 
   USERNAME_FIELD = 'email'
-  REQUIRED_FIELDS = ['password']
+  REQUIRED_FIELDS = [ 'first_name','password']
 
 
   objects = UsuarioManager()

@@ -33,7 +33,7 @@ def index_submit(request):
                 )
                 mov.save()
                 desc = Descricao_gasto.objects.create(
-                    descricao = form1.cleaned_data['descricao_gasto']
+                    descricao_gasto = form1.cleaned_data['descricao_gasto']
                 )
                 desc.save()
                 print(desc)
