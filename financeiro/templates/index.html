@@ -13,7 +13,7 @@
 <body>
     {% bootstrap_javascript%}
 
-    <h1>Olá, {{request.user.username}}</h1>
+    <h1>Olá, {{request.user.first_name}}</h1>
     <h3>saldo:</h3>
     {% bootstrap_messages %}
     <h3>Adicionar movimentação:</h3>
