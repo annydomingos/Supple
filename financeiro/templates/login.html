@@ -1,0 +1,40 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% bootstrap_css %}
+</head>
+
+<body>
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <form method='POST' action='/login/submit'>
+        {% csrf_token %}
+        <h1>Login</h1
+
+
+        <label for='username'>Email</label>
+        <input name="username" type="email" required=True><br>
+
+
+        <label for='password'>Senha</label>
+        <input name="password" type="password" required=True>
+        <!--
+        <a href="./paginas/paginainicial.html "></a>-->
+        <button type="submit" value='submit' class='btn btn-primary'>Entrar</button>
+
+
+
+    </form>
+ {% for message in messages %}
+    erro {{message}}
+    {% endfor %}
+
+</body>
+
+</html>
