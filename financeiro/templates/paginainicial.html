@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
 </head>
 
 <body>
     <h1>Olá, {{request.user.first_name}}</h1>
     <div>
-        <h3>Adicionar<br> Movimentação</h3>
+        <a href="{% url 'index' %}"><h3>Adicionar<br> Movimentação</h3></a>
     </div>
     <div>
-        <h3>Minhas<br> Poupanças</h3>
+       <a href="{% url 'poupanca' %}"><h3>Minhas<br> Poupanças</h3></a>
     </div>
 
     <div>
-        <h3>Extrato</h3>
+       <a href='{% url 'extrato' %}'><h3>Extrato</h3></a>
     </div>
 
     <div>
