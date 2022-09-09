@@ -12,8 +12,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static  'css/style.css' %}">
 </head>
-<a href="{% url 'pagina_inicial' %}"><h3>Página Inicial</h3></a>
+<nav class="nav-horizontal">
+    <a href="{% url 'pagina_inicial' %}"><h3>Página Inicial</h3></a>
+    <a href="{% url 'index' %}"><h3>Movimentações</h3></a>
+    <a href="{% url 'extrato' %}"><h3>Extrato</h3></a>
+    <h3>Poupança</h3>
+    <a href="{% url 'logout' %}"><h3>Logout</h3></a>
+</nav>
+
+
 <h1>Minhas Poupanças</h1>
+    {% if lista_poupanca %}
+    <ul>
+        {% for poupanca in lista_poupanca %}
+
+        <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
+
+        {% endfor %}
+    </ul>
+
+
+    {% endif %}
+
 <h3>Nova Poupança</h3>
 
  <form method="POST" action="/nova_poupanca/submit">

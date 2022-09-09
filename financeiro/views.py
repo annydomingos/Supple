@@ -93,7 +93,7 @@ def extrato(request):
         context = {'lista_mov' : lista_mov }
         return render(request, 'extrato.html', context)
     else:
-        return redirect('login.html')
+        return redirect('login')
 
 
 def pagina_inicial(request):
@@ -104,11 +104,11 @@ def pagina_inicial(request):
 
 def poupanca(request):
     if request.user.is_authenticated:
-        poupanca = Poupanca.objects.all()
-        context = {'poupanca' : poupanca}
+        lista_poupanca = Poupanca.objects.order_by('-id')
+        context = {'lista_poupanca' : lista_poupanca}
         return render(request,'poupanca.html', context)
     else:
-        return redirect('login.html')
+        return redirect('login')
 
 
 
@@ -125,7 +125,10 @@ def nova_poupanca_submit(request):
                     )
                     poup.save()
                     messages.success(request, "Poupança criada com sucesso")
-                    return render(request,'templates/poupanca.html')
+                    lista_poupanca = Poupanca.objects.order_by('-id')
+                    context = {'lista_poupanca' : lista_poupanca}
+
+                    return render(request,'poupanca.html', context)
                 except:
                     messages.error(request,'Erro ao criar objeto')
                     return render(request,'poupanca.html')
