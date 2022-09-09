@@ -60,7 +60,6 @@ def login_submit(request):
         if request.POST:
             form = LoginForm(request.POST)
             if form.is_valid():
-            # user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
                 user = Usuario.objects.filter(email=form.cleaned_data['username']).first()
                 print(user)
                 print(Usuario.objects.filter(email=form.cleaned_data['username']))
@@ -116,10 +115,10 @@ def poupanca(request):
 def nova_poupanca_submit(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            try:
-                form = PoupancaForm(request.POST)
-                print(form.is_valid())
-                if form.is_valid():
+            form = PoupancaForm(request.POST)
+            print(form.is_valid())
+            if form.is_valid():
+                try:
                     poup = Poupanca.objects.create(
                     nome_poupanca = form.cleaned_data['nome_poupanca'],
                     saldo_poupanca = form.cleaned_data['saldo_poupanca'],
@@ -127,13 +126,16 @@ def nova_poupanca_submit(request):
                     poup.save()
                     messages.success(request, "Poupança criada com sucesso")
                     return render(request,'templates/poupanca.html')
-            except:
+                except:
+                    messages.error(request,'Erro ao criar objeto')
+                    return render(request,'poupanca.html')
+            else:
                 messages.error(request, form.errors)
-                return redirect('poupanca.html')
+                return render(request,'poupanca.html')
         else:
             return render(request, 'poupanca.html', {'poup' : poup})
     else:
-        return redirect('login.html')
+        return redirect('login')
 
 def saldo(request):
     pass
