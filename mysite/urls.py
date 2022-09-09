@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from financeiro.views import index,index_submit, login_user, login_submit, logout_user, extrato, pagina_inicial, poupanca
+from financeiro.views import index,index_submit, login_user, login_submit, logout_user, extrato, pagina_inicial, poupanca, nova_poupanca_submit
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path ('extrato/', extrato, name='extrato'),
     path('pagina_inicial', pagina_inicial, name='pagina_inicial'),
     path('poupanca', poupanca, name='poupanca'),
+    path('nova_poupanca/submit', nova_poupanca_submit, name="nova_poupanca_submit")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -23,4 +23,8 @@ class LoginForm(forms.Form):
   username = forms.CharField()
   password = forms.CharField(max_length=255)
 
+class PoupancaForm(forms.Form):
+  nome_poupanca = forms.CharField(max_length=40)
+  saldo_poupanca = forms.DecimalField(decimal_places=2, max_digits=10, initial=0)
+
 

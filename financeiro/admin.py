@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movimentacao, Carteira, Responsavel
+from .models import Movimentacao, Carteira, Responsavel, Poupanca
 
 # Register your models here.
 
@@ -24,3 +24,7 @@ class ResponsavelAdmin(admin.ModelAdmin):
 admin.site.register(Responsavel, ResponsavelAdmin)
 
 
+class PoupancaAdmin(admin.ModelAdmin):
+  list_display = ('nome_poupanca', 'saldo_poupanca')
+
+admin.site.register(Poupanca, PoupancaAdmin)

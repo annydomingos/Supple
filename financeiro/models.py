@@ -37,5 +37,9 @@ class Responsavel(models.Model):
   def __str__(self):
     return str(self.filho)
 
+class Poupanca(models.Model):
+  nome_poupanca = models.CharField('Descrição', max_length=40)
+  saldo_poupanca = models.DecimalField('Saldo', decimal_places=2, max_digits=10, default=0)
+
 
 

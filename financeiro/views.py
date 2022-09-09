@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .forms import MovimentacaoForm, LoginForm
-from .models import  Movimentacao, Carteira
+from .forms import MovimentacaoForm, LoginForm, PoupancaForm
+from .models import  Movimentacao, Carteira, Poupanca
 from django.contrib import messages
 from django.contrib.auth import login, logout
 
@@ -105,7 +105,33 @@ def pagina_inicial(request):
 
 def poupanca(request):
     if request.user.is_authenticated:
-        return render(request,'poupanca.html')
+        poupanca = Poupanca.objects.all()
+        context = {'poupanca' : poupanca}
+        return render(request,'poupanca.html', context)
+    else:
+        return redirect('login.html')
+
+
+
+def nova_poupanca_submit(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            try:
+                form = PoupancaForm(request.POST)
+                print(form.is_valid())
+                if form.is_valid():
+                    poup = Poupanca.objects.create(
+                    nome_poupanca = form.cleaned_data['nome_poupanca'],
+                    saldo_poupanca = form.cleaned_data['saldo_poupanca'],
+                    )
+                    poup.save()
+                    messages.success(request, "Poupança criada com sucesso")
+                    return render(request,'templates/poupanca.html')
+            except:
+                messages.error(request, form.errors)
+                return redirect('poupanca.html')
+        else:
+            return render(request, 'poupanca.html', {'poup' : poup})
     else:
         return redirect('login.html')
 

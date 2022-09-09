@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Poupança</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,6 +15,18 @@
 <a href="{% url 'pagina_inicial' %}"><h3>Página Inicial</h3></a>
 <h1>Minhas Poupanças</h1>
 <h3>Nova Poupança</h3>
+
+ <form method="POST" action="/nova_poupanca/submit">
+    {% csrf_token %}
+    <label for="nome_poupanca">Descrição</label>
+    <input type="text" name="nome_poupanca">
+
+    <label for="saldo">Saldo</label>
+    <input type="number" name="saldo">
+
+    <button type="submit" value='submit'>Salvar</button>
+
+ </form>
 
 
 <body>
