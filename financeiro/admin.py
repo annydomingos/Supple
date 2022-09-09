@@ -5,7 +5,7 @@ from .models import Movimentacao, Carteira, Responsavel
 
 
 class MovimentacaoAdmin(admin.ModelAdmin):
-  list_display = ('valor', 'usuario', 'carteira','tipo_movimentacao', 'descricao')
+  list_display = ('valor', 'usuario', 'carteira','tipo_movimentacao', 'descricao', 'data')
 
 
 admin.site.register(Movimentacao, MovimentacaoAdmin)

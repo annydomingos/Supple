@@ -14,7 +14,19 @@
 </head>
 
 <body>
+    <a href="{% url 'pagina_inicial' %}"><h3>Pagina Inicial</h3></a>
+    <a href="{% url 'index' %}"><h3>Adicionar Movimentação</h3></a>
     <h1>Extrato</h1>
+    <div>
+        {% if lista_mov %}
+        <ul class="extrato">
+            {% for movimentacao in lista_mov %}
+
+            <li>{{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
 </body>
 
 </html>

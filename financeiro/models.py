@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from usuario.models import Usuario
 # Create your models here.
@@ -15,6 +16,7 @@ class Movimentacao(models.Model):
   carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
   tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='entrada')
   descricao = models.CharField('Descrição', max_length=255, blank=True, null=True)
+  data = models.DateField('Data', default=timezone.now())
 
   def __str__(self) :
     return str(self.valor)
