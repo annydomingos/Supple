@@ -30,6 +30,7 @@ def index_submit(request):
                 usuario_id = form.cleaned_data['usuario'],
                 carteira_id = form.cleaned_data['carteira'],
                 descricao = form.cleaned_data['descricao'],
+                data = form.cleaned_data['data'],
                 # tipo_movimentacao = form.cleaned_data['tipo_movimentacao'],
                 )
                 mov.save()
@@ -89,7 +90,9 @@ def logout_user(request):
 
 def extrato(request):
     if request.user.is_authenticated:
-        return render(request,'extrato.html')
+        lista_mov = Movimentacao.objects.order_by('-data')
+        context = {'lista_mov' : lista_mov }
+        return render(request, 'extrato.html', context)
     else:
         return redirect('login.html')
 
@@ -105,3 +108,6 @@ def poupanca(request):
         return render(request,'poupanca.html')
     else:
         return redirect('login.html')
+
+def saldo(request):
+    pass

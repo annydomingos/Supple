@@ -1,5 +1,7 @@
+from email.policy import default
 from django import forms
 from .models import Movimentacao
+from django.utils import timezone
 
 class MovimentacaoForm(forms.Form):
   # TIPO_DESPESA = 'DESPESA'
@@ -14,6 +16,7 @@ class MovimentacaoForm(forms.Form):
   usuario = forms.IntegerField()
   valor = forms.DecimalField(decimal_places=2, max_digits=10)
   descricao = forms.CharField(max_length=255)
+  data = forms.DateField(widget=forms.DateInput, initial=timezone.now)
 
 
 class LoginForm(forms.Form):
