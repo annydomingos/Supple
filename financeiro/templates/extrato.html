@@ -27,7 +27,7 @@
         <ul class="extrato">
             {% for movimentacao in lista_mov %}
 
-            <li>{{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
+            <li> {{ movimentacao.tipo_movimentacao }} | {{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
             {% endfor %}
         </ul>
         {% else %}

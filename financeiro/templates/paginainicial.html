@@ -15,20 +15,23 @@
 
 <body>
     <h1>Olá, {{request.user.first_name}}</h1>
-    <div>
-        <a href="{% url 'index' %}"><h3>Adicionar<br> Movimentação</h3></a>
-    </div>
-    <div>
-       <a href="{% url 'poupanca' %}"><h3>Minhas<br> Poupanças</h3></a>
-    </div>
+    <div class="container-nav">
+        <div>
+            <a href="{% url 'index' %}"><h3>Adicionar<br> Movimentação</h3></a>
+        </div>
+        <div>
+        <a href="{% url 'poupanca' %}"><h3>Minhas<br> Poupanças</h3></a>
+        </div>
 
-    <div>
-       <a href='{% url 'extrato' %}'><h3>Extrato</h3></a>
-    </div>
+        <div>
+        <a href='{% url 'extrato' %}'><h3>Extrato</h3></a>
+        </div>
 
+        <div>
+            <h3>Dicas<br> financeiras</h3>
+        </div>
+        <a href="{% url 'logout' %}"><h3>Logout</h3></a>
     <div>
-        <h3>Dicas<br> financeiras</h3>
-    </div>
 </body>
 
 </html

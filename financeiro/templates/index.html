@@ -39,7 +39,11 @@
             <p><label for="valor">Valor </label></p>
             <input name="valor" type="number" step="0.01" required>
 
-            {% comment %} <p><label>Tipo movimenção</label></p> {% endcomment %}
+            <p><label for="tipo_movimentacao">Tipo movimenção</label></p>
+            <select name="tipo_movimentacao" required>
+                <option name="entrada">Entrada</option>
+                <option name="despesa">Despesa</option>
+            </select>
 
             <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
                 <input name="carteira" style="display: none;" value="{{carteira.id}}" type="number">
