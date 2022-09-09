@@ -14,7 +14,7 @@ class Movimentacao(models.Model):
   usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
   tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='entrada')
-
+  descricao = models.CharField('Descrição', max_length=255, blank=True, null=True)
 
   def __str__(self) :
     return str(self.valor)
@@ -36,11 +36,4 @@ class Responsavel(models.Model):
     return str(self.filho)
 
 
-class Descricao_gasto(models.Model):
-  valor = models.ForeignKey(Movimentacao, on_delete=models.CASCADE)
-  descricao = models.CharField('Descrição', max_length=50)
-  usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-  carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
 
-  def __str__(self):
-   return self.usuario

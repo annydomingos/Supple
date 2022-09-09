@@ -1,4 +1,5 @@
-{% load bootstrap5 %}
+{% load static %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,38 +9,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
-    {% bootstrap_css %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+
+
+    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet"> {% endcomment %}
+
 </head>
 
 <body>
-    {% bootstrap_javascript%}
+    <a href='{% url 'extrato' %}'>Extrato</a>
+
 
     <h1>Olá, {{request.user.first_name}}</h1>
     <h3>saldo:</h3>
-    {% bootstrap_messages %}
+
     <h3>Adicionar movimentação:</h3>
-    <form action='/submit/' method='POST'>
-        {% csrf_token %}
+    <div class="container">
+        <form action='/submit/' method='POST'>
+            {% csrf_token %}
 
 
-        <p><label>Valor </label></p>
-        <input name="valor" type="number" step="0.01" required>
+            <p><label for="valor">Valor </label></p>
+            <input name="valor" type="number" step="0.01" required>
 
-        {% comment %} <p><label>Tipo movimenção</label></p> {% endcomment %}
+            {% comment %} <p><label>Tipo movimenção</label></p> {% endcomment %}
 
-        <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
-        <input name="carteira" style="display: none;" value="1" type="number">
+            <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
+                <input name="carteira" style="display: none;" value="{{carteira.id}}" type="number">
 
-        <p><label for="descricao_gasto">Descrição</label></p>
-        <input name="descricao_gasto" type="text">
+            <p><label for="descricao">Descrição</label></p>
+            <input name="descricao" type="text">
 
-        <button type="submit" value='submit'>Enviar</button>
-    </form>
-
+            <button type="submit" value='submit'>Enviar</button>
+        </form>
+    </div>
 
     {% if request.user.is_authenticated %}
         <a href="/logout/">Logout</a>
