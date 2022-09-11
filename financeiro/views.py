@@ -31,7 +31,7 @@ def index_submit(request):
                 carteira_id = form.cleaned_data['carteira'],
                 descricao = form.cleaned_data['descricao'],
                 data = form.cleaned_data['data'],
-                # tipo_movimentacao = form.cleaned_data['tipo_movimentacao'],
+                tipo_movimentacao = form.cleaned_data['tipo_movimentacao'],
                 )
                 mov.save()
                 messages.success(request, 'Movimentação adicionada com sucesso')

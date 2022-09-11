@@ -14,7 +14,7 @@ class Movimentacao(models.Model):
   valor = models.DecimalField('Valor', blank=False, null=False, decimal_places=2, max_digits=10)
   usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
-  tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='entrada')
+  tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='Entrada')
   descricao = models.CharField('Descrição', max_length=255, blank=True, null=True)
   data = models.DateField('Data', default=timezone.now())
 
