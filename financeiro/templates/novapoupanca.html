@@ -1,0 +1,45 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Poupança</title>
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+</head>
+
+<body>
+
+        <h3>Nova Poupança</h3>
+
+        <form method="POST" action="/nova_poupanca/submit">
+            {% csrf_token %}
+            <label for="nome_poupanca">Descrição</label>
+            <input type="text" name="nome_poupanca">
+
+            <label for="saldo_poupanca">Saldo</label>
+            <input type="number" name="saldo_poupanca">
+
+            <button type="submit" value='submit'>Salvar</button>
+
+        </form>
+
+        {% if lista_poupanca %}
+
+        {% for poupanca in lista_poupanca %}
+
+            <ul>
+                <div class="box ">
+
+                    <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
+                </div>
+            </ul>
+        {% endfor %}
+
+    {% endif %}
+
+</body>
+
+</html>

@@ -6,32 +6,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Supple</title>
+
     <link rel="stylesheet" href="{% static  'css/style.css' %}">
 </head>
 
 <body>
-    <h1>Olá, {{request.user.first_name}}</h1>
-    <div class="container-nav">
-        <div>
-            <a href="{% url 'index' %}"><h3>Adicionar<br> Movimentação</h3></a>
-        </div>
-        <div>
-        <a href="{% url 'poupanca' %}"><h3>Minhas<br> Poupanças</h3></a>
-        </div>
+    <div id="logintitulo" class="titulo">
+        <h1>Olá, {{request.user.first_name}}</h1>
+        <h4>Saldo: </h4>
+        <h2>{{ saldo_do_usuario }}</h2>
+    </div>
 
-        <div>
-        <a href='{% url 'extrato' %}'><h3>Extrato</h3></a>
-        </div>
+    <div class=" imgtitulo ">
+        <img src="/financeiro/static/img/avatar.svg" alt="avatar">
+    </div>
 
-        <div>
+    <a href="{% url 'index' %}">
+        <div class=" box ">
+            <h3>Adicionar<br> Movimentação</h3>
+            <img class="imagembox " src="/financeiro/static/img/dinheiromovimentacao.svg " alt="dinheiro">
+        </div>
+    </a>
+
+    <a href="{% url 'poupanca' %}">
+        <div class="box ">
+            <h3>Minhas<br> Poupanças</h3>
+            <img class="imagembox " src="/financeiro/static/img/minhaspoupancas.svg" alt="ilustraçao cofrinho com moedas ">
+        </div>
+    </a>
+
+    <a href="{% url 'extrato' %}">
+        <div class="box ">
+            <h3>Extrato</h3>
+            <img class="imagembox " src="/financeiro/static/img/extrato.svg " alt="extrato">
+        </div>
+    </a>
+
+    <a href="/ ">
+
+        <div class="box " style="border-color: #7066fc; ">
             <h3>Dicas<br> financeiras</h3>
+            <img class="imagembox " src="/financeiro/static/img/pessoa ensimando.png" alt="pessoa ensinando ">
         </div>
-        <a href="{% url 'logout' %}"><h3>Logout</h3></a>
-    <div>
+
+
+        <div class="logout "> <a class="logout " href="{% url 'logout' %} ">Deslogar da conta</a></div>
+
 </body>
 
 </html

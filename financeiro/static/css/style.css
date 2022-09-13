@@ -1,9 +1,252 @@
-
-h1{
-  color: purple;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap');
+ :root {
+    --roxoclaro: #A163F7;
+    --roxoescuro: #724D93;
+    --vermelho: #FE8684;
+    --preto: #333333;
+    --roxoazulado: #6F66FC;
+    --bege: #FEFAF2;
 }
 
-.nav-horizontal{
-  display: flex;
-  gap: 20px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: josefin sans;
+}
+
+
+/*pagina de login*/
+
+.logologin {
+    max-width: 500px;
+    width: 50%;
+    margin-top: 40px;
+}
+
+.titulologin {
+    font-weight: 400;
+    font-size: medium;
+    margin-top: 5%;
+    color: #333333;
+}
+
+.inputlogin {
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 5px 10px #7066fc32;
+    color: #6F66FC;
+    border-color: #7066fc;
+}
+
+.formlogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 40px;
+}
+
+.button {
+    max-width: 150;
+    width: 25%;
+    height: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 5px 10px #a163f77a;
+    border: none;
+    background-color: #FE8684;
+    color: #FFFF;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.imagemlogin {
+    max-width: 200px;
+    width: 60%;
+    padding-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logincontainer {
+    max-width: 400px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 10%;
+}
+
+
+/*pagina de inicial*/
+
+.box {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 700px;
+    width: 80%;
+    border-radius: 15px;
+    height: 120px;
+    padding: 5%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px #7066fc32;
+    color: #6F66FC;
+    font-style: normal;
+    border: 2px solid #7066fc;
+}
+
+.titulo,
+.saldo {
+    color: #333333;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.titulo {
+    margin-top: 50px;
+    max-width: 700px;
+    width: 80%;
+    display: flex;
+}
+
+#logintitulo {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 700px;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+}
+
+.imgtitulo {
+    margin-top: 50px;
+    margin-top: 5%;
+    position: relative;
+    margin-left: 50%;
+}
+
+.saldo {
+    margin-top: 10%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.imagembox {
+    min-width: 50px;
+}
+
+.logout {
+    font-style: normal;
+    color: #6F66FC;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+h1 {
+    color: #6F66FC;
+    text-decoration: none;
+}
+
+h2 {
+    margin-top: 5%;
+    text-decoration: none;
+}
+
+h3 {
+    text-decoration: none;
+}
+
+h4 {
+    margin-top: 5%;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*Index*/
+
+.indexinput {
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: #6F66FC;
+    border-color: #7066fc;
+}
+
+.data {
+    border-radius: 20px;
+    padding: 10px;
+    color: #6F66FC;
+    border-color: #7066fc;
+    display: flex;
+    gap: 20px;
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.botaovoltar {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.inputcontainer {
+    text-align: center;
+}
+
+
+/*extrato*/
+
+.movimentacaoextrato {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: #6F66FC;
+    border: 2px solid #7066fc;
+    list-style: none;
+}
+
+.avisomovimentacao {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #FE8684;
 }

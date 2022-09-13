@@ -6,32 +6,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrato</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Supple Extrato</title>
     <link rel="stylesheet" href="{% static  'css/style.css' %}">
+
 </head>
 
 <body>
-    <nav class="nav-horizontal">
-        <a href="{% url 'pagina_inicial' %}"><h3>Página Inicial</h3></a>
-        <a href="{% url 'index' %}"><h3>Movimentações</h3></a>
-        <h3>Extrato</h3>
-        <a href="{% url 'poupanca' %}"><h3>Poupança</h3></a>
-        <a href="{% url 'logout' %}"><h3>Logout</h3></a>
-    </nav>
-    <h1>Extrato</h1>
+    <a href="{% url 'pagina_inicial' %}"> <img class="botaovoltar" src="/financeiro/static/img/voltar.svg" alt="ilustraçao cofrinho com moedas ">
+    </a>
+
+    <div class="titulo">
+
+        <h2>Extrato</h2> <br>
+        <h4>Saldo: </h4> <br>
+        <h2>{{ saldo_do_usuario }}</h2>
+    </div>
     <div>
         {% if lista_mov %}
         <ul class="extrato">
             {% for movimentacao in lista_mov %}
+            <div class="movimentacaoextrato">
+                <li> {{ movimentacao.tipo_movimentacao }} | {{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
 
-            <li> {{ movimentacao.tipo_movimentacao }} | {{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
+            </div>
             {% endfor %}
         </ul>
         {% else %}
-        <p>Nenhuma movimentação feita</p>
+        <p class="avisomovimentacao">Nenhuma movimentação feita</p>
         {% endif %}
     </div>
 </body>
