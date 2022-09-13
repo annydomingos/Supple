@@ -9,13 +9,33 @@ from usuario.models import Usuario
 
 
 # Create your views here.
+def saldo(request):
+    if request.user.is_authenticated:
+        saldo_usuario = Carteira.objects.filter(usuario_id=request.user.id).first()
+        print(saldo_usuario)
+        lista_movi = Movimentacao.objects.filter(usuario_id=request.user.id).order_by('id')
+        entradas = lista_movi.filter(tipo_movimentacao="Entrada")
+        despesas = lista_movi.filter(tipo_movimentacao="Despesa")
+        if lista_movi.count() > 0:
+            entradas_usuario = 0
+            entradas_usuario = sum([e.valor or 0 for e in entradas])
+            despesas_usuario = sum([d.valor or 0 for d in despesas])
+            saldo_usuario.saldo = entradas_usuario - despesas_usuario
+            saldo_usuario.save()
+            return saldo_usuario.saldo
+        else:
+            pass
+    else:
+        pass
+
 def index(request):
     if request.user.is_anonymous:
         return render(request, 'login.html')
     else:
         movimentacao = Movimentacao.objects.all()
         carteira = Carteira.objects.filter(usuario=request.user).first()
-        context = { 'movimentacao' : movimentacao, 'carteira' : carteira }
+        saldo_do_usuario = saldo(request)
+        context = { 'movimentacao' : movimentacao, 'carteira' : carteira , "saldo_do_usuario" : saldo_do_usuario }
         return render(request, 'index.html', context)
 
 def index_submit(request):
@@ -91,7 +111,8 @@ def logout_user(request):
 def extrato(request):
     if request.user.is_authenticated:
         lista_mov = Movimentacao.objects.order_by('-data')
-        context = {'lista_mov' : lista_mov }
+        saldo_do_usuario = saldo(request)
+        context = {'lista_mov' : lista_mov, 'saldo_do_usuario' : saldo_do_usuario}
         return render(request, 'extrato.html', context)
     else:
         return redirect('login')
@@ -99,7 +120,9 @@ def extrato(request):
 
 def pagina_inicial(request):
     if request.user.is_authenticated:
-        return render(request,'paginainicial.html')
+        saldo_do_usuario = saldo(request)
+        context = {"saldo_do_usuario" : saldo_do_usuario }
+        return render(request,'paginainicial.html', context)
     else:
         return redirect('login')
 
@@ -149,5 +172,4 @@ def nova_poupanca_submit(request):
     else:
         return redirect('login')
 
-def saldo(request):
-    pass
+

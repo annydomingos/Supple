@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrato</title>
+    <title>Supple Extrato</title>
     <link rel="stylesheet" href="{% static  'css/style.css' %}">
 
 </head>
@@ -17,8 +17,9 @@
 
     <div class="titulo">
 
-        <h2>Extrato</h2>
-
+        <h2>Extrato</h2> <br>
+        <h4>Saldo: </h4> <br>
+        <h2>{{ saldo_do_usuario }}</h2>
     </div>
     <div>
         {% if lista_mov %}
@@ -26,9 +27,9 @@
             {% for movimentacao in lista_mov %}
             <div class="movimentacaoextrato">
                 <li> {{ movimentacao.tipo_movimentacao }} | {{ movimentacao.valor }} | {{ movimentacao.descricao }} | {{ movimentacao.data }}</li>
-                {% endfor %}
-            </div>
 
+            </div>
+            {% endfor %}
         </ul>
         {% else %}
         <p class="avisomovimentacao">Nenhuma movimentação feita</p>
