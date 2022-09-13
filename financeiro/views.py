@@ -85,14 +85,11 @@ def login_submit(request):
                 print(Usuario.objects.filter(email=form.cleaned_data['username']))
                 if user:
                     if user.check_password(form.cleaned_data['password']):
-
                         messages.success(request, 'Logout realizado com sucesso')
                         login(request, user)
                         return redirect('pagina_inicial')
                     else:
                         messages.error(request, 'Usuário ou senha inválido')
-
-
                 else:
                     messages.error(request, 'Usuário ou senha inválido')
 

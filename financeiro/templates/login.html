@@ -15,7 +15,7 @@
 <body>
     <main>
         <div class="logincontainer">
-            <img class="logologin" src="/financeiro/static/img/logo_inicial-03.svg" alt="logo supple">
+            <img src="{% static 'img/logo_inicial-03.svg' %}" class="logologin" alt="logo supple">
             <h1 class="titulologin">Faça login para acessar sua conta</h1>
             <form class="formlogin" method='POST' action='/login/submit'>
                 {% csrf_token %}

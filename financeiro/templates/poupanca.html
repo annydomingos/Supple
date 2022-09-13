@@ -12,14 +12,15 @@
 </head>
 
 <body>
-    <a href="{% url 'pagina_inicial' %}"> <img class="botaovoltar" src="/financeiro/static/img/voltar.svg" alt="botao voltar ">
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
     </a>
     <div class="titulo">
         <h2>Minhas Poupanças</h2>
         <a href="{% url 'nova_poupanca' %}">
             <div class="box ">
                 <h3>Nova<br> Poupança</h3>
-                <img class="imagembox " src="/financeiro/static/img/minhaspoupancas.svg" alt="ilustraçao cofrinho com moedas ">
+                <img class="imagembox " src="{% static 'img/minhaspoupancas.svg' %}" alt="ilustraçao cofrinho com moedas ">
             </div>
         </a>
 
