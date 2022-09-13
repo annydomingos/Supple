@@ -6,23 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nova Poupança</title>
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
 </head>
 
 <body>
-    <div class="titulo">
-        <h2>Minhas Poupanças</h2>
-        {% if lista_poupanca %}
-        <ul>
-            {% for poupanca in lista_poupanca %}
-
-            <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-
-            {% endfor %}
-        </ul>
-
-
-        {% endif %}
 
         <h3>Nova Poupança</h3>
 
@@ -37,6 +25,20 @@
             <button type="submit" value='submit'>Salvar</button>
 
         </form>
+
+        {% if lista_poupanca %}
+
+        {% for poupanca in lista_poupanca %}
+
+            <ul>
+                <div class="box ">
+
+                    <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
+                </div>
+            </ul>
+        {% endfor %}
+
+    {% endif %}
 
 </body>
 

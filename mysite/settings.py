@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'financeiro',
     'educativo',
     'usuario',
-    'bootstrap5',
+
 ]
 
 MIDDLEWARE = [

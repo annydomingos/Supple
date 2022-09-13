@@ -101,13 +101,21 @@ def pagina_inicial(request):
     if request.user.is_authenticated:
         return render(request,'paginainicial.html')
     else:
-        return redirect('login.html')
+        return redirect('login')
 
 def poupanca(request):
     if request.user.is_authenticated:
         lista_poupanca = Poupanca.objects.order_by('-id')
         context = {'lista_poupanca' : lista_poupanca}
         return render(request,'poupanca.html', context)
+    else:
+        return redirect('login')
+
+def nova_poupanca(request):
+    if request.user.is_authenticated:
+        lista_poupanca = Poupanca.objects.order_by('-id')
+        context = {'lista_poupanca' : lista_poupanca}
+        return render(request, "novapoupanca.html", context)
     else:
         return redirect('login')
 
@@ -129,15 +137,15 @@ def nova_poupanca_submit(request):
                     lista_poupanca = Poupanca.objects.order_by('-id')
                     context = {'lista_poupanca' : lista_poupanca}
 
-                    return render(request,'poupanca.html', context)
+                    return render(request,'novapoupanca.html', context)
                 except:
                     messages.error(request,'Erro ao criar objeto')
-                    return render(request,'poupanca.html')
+                    return render(request,'novapoupanca.html')
             else:
                 messages.error(request, form.errors)
-                return render(request,'poupanca.html')
+                return render(request,'novapoupanca.html')
         else:
-            return render(request, 'poupanca.html', {'poup' : poup})
+            return render(request, 'novapoupanca.html', {'poup' : poup})
     else:
         return redirect('login')
 

@@ -16,23 +16,26 @@
     </a>
     <div class="titulo">
         <h2>Minhas Poupanças</h2>
-        <a href="{% url 'novapoupanca' %}">
+        <a href="{% url 'nova_poupanca' %}">
             <div class="box ">
                 <h3>Nova<br> Poupança</h3>
                 <img class="imagembox " src="/financeiro/static/img/minhaspoupancas.svg" alt="ilustraçao cofrinho com moedas ">
             </div>
         </a>
 
-        {% if lista_poupanca %} {% for poupanca in lista_poupanca %}
+        {% if lista_poupanca %}
 
+            {% for poupanca in lista_poupanca %}
 
-        <ul>
-            <div class="box ">
+                <ul>
+                    <div class="box ">
 
-                <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-            </div>
-        </ul>
-        {% endfor %} {% endif %}
+                        <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
+                    </div>
+                </ul>
+            {% endfor %}
+
+        {% endif %}
 
 
 
