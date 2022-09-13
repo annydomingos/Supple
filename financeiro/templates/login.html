@@ -1,4 +1,4 @@
-{% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,34 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+
+
 </head>
 
 <body>
-    {% bootstrap_javascript %}
-    {% bootstrap_messages %}
-    <form method='POST' action='/login/submit'>
-        {% csrf_token %}
-        <h1>Login</h1
+    <main>
+        <div class="logincontainer">
+            <img class="logologin" src="/financeiro/static/img/logo_inicial-03.svg" alt="logo supple">
+            <h1 class="titulologin">Faça login para acessar sua conta</h1>
+            <form class="formlogin" method='POST' action='/login/submit'>
+                {% csrf_token %}
 
-
-        <label for='username'>Email</label>
-        <input name="username" type="email" required=True><br>
-
-
-        <label for='password'>Senha</label>
-        <input name="password" type="password" required=True>
-        <!--
-        <a href="./paginas/paginainicial.html "></a>-->
-        <button type="submit" value='submit' class='btn btn-primary'>Entrar</button>
+                <input class="inputlogin " placeholder="Email " name="username" type="email" required=True><br>
 
 
 
-    </form>
- {% for message in messages %}
-    erro {{message}}
-    {% endfor %}
+                <input class="inputlogin " name="password" placeholder="Senha " type="password" required=True>
 
+                <button class="button" type="submit" value='submit' class='btn btn-primary'>Entrar</button>
+
+
+
+            </form>
+            {% for message in messages %} {{message}} {% endfor %}
+    </main>
 </body>
 
 </html>

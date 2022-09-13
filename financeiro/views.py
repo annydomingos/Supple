@@ -66,9 +66,9 @@ def login_submit(request):
                 if user:
                     if user.check_password(form.cleaned_data['password']):
 
-                        messages.success(request, 'Login realizado com sucesso')
+                        messages.success(request, 'Logout realizado com sucesso')
                         login(request, user)
-                        return redirect('/')
+                        return redirect('pagina_inicial')
                     else:
                         messages.error(request, 'Usuário ou senha inválido')
 
@@ -84,7 +84,8 @@ def login_submit(request):
 def logout_user(request):
     if request.user.is_authenticated:
         logout(request)
-        return render(request,'login.html')
+        #messages.sucess(request, 'Logout realizado com sucesso')
+        return redirect('login')
 #depois modificar para direcionar para página inicial, quando tiver uma
 
 def extrato(request):
