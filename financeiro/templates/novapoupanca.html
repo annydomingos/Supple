@@ -11,7 +11,9 @@
 </head>
 
 <body>
-
+    <a href="{% url 'poupanca' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
         <h3>Nova Poupança</h3>
 
         <form method="POST" action="/nova_poupanca/submit">
@@ -39,7 +41,7 @@
         {% endfor %}
 
     {% endif %}
-
+    {% comment %} {% for message in messages %} {{message}} {% endfor %} {% endcomment %}
 </body>
 
 </html>

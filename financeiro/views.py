@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import MovimentacaoForm, LoginForm, PoupancaForm
 from .models import  Movimentacao, Carteira, Poupanca
@@ -34,6 +35,7 @@ def index(request):
     else:
         movimentacao = Movimentacao.objects.all()
         carteira = Carteira.objects.filter(usuario=request.user).first()
+        msg_success_mov =  messages.success(request, 'Movimentação adicionada com sucesso')
         saldo_do_usuario = saldo(request)
         context = { 'movimentacao' : movimentacao, 'carteira' : carteira , "saldo_do_usuario" : saldo_do_usuario }
         return render(request, 'index.html', context)
@@ -54,11 +56,11 @@ def index_submit(request):
                 tipo_movimentacao = form.cleaned_data['tipo_movimentacao'],
                 )
                 mov.save()
-                messages.success(request, 'Movimentação adicionada com sucesso')
+                messages.success(request,'Movimentação adicionada com sucesso')
                 return redirect('index')
+
             except Exception as e:
                 print(e)
-                # print(form.cleaned_data['tipo_movimentacao'])
                 messages.error(request,form.errors)
                 return redirect('/')
         else:

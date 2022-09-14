@@ -25,24 +25,21 @@
         </a>
 
         {% if lista_poupanca %}
+            <ul>
+                {% for poupanca in lista_poupanca %}
+                <div class="movimentacaoextrato ">
+                    <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
+                </div>
 
-            {% for poupanca in lista_poupanca %}
-
-                <ul>
-                    <div class="box ">
-
-                        <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-                    </div>
-                </ul>
-            {% endfor %}
-
+                {% endfor %}
+            </ul>
         {% endif %}
 
 
 
 
 
-
+{% comment %} {% for message in messages %} {{message}} {% endfor %} {% endcomment %}
 </body>
 
 </html>

@@ -35,8 +35,6 @@
         <form action='/submit/' method='POST'>
             {% csrf_token %}
 
-
-
             <input class="indexinput " placeholder="Valor " name="valor" placeholder="Valor " type="number" step="0.01" required>
 
 
@@ -59,9 +57,9 @@
             <button class="button " type="submit" value='submit'>Enviar</button>
         </form>
     </div>
-
-
-
+{% comment %} {% if messages %}
+{% for message in messages %} {{message}} {% endfor %}
+{% endif %} {% endcomment %}
 </body>
 
 </html>
