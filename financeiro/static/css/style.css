@@ -19,7 +19,7 @@
 /*pagina de login*/
 
 .logologin {
-    max-width: 500px;
+    max-width: 31.25rem;
     width: 50%;
     margin-top: 40px;
 }
@@ -32,9 +32,9 @@
 }
 
 .inputlogin {
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0px 5px 10px #7066fc32;
+    border-radius: 1.25rem;
+    padding: 0.625rem;
+    box-shadow: 0rem 0.313rem 0.675rem #7066fc32;
     color: #6F66FC;
     border-color: #7066fc;
 }
@@ -42,24 +42,24 @@
 .formlogin {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 300px;
+    gap: 1.25rem;
+    max-width: 18.75rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
 .button {
-    max-width: 150;
+    max-width: 9.375rem;
     width: 25%;
-    height: 30px;
-    border-radius: 20px;
-    padding: 10px;
+    height: 1.875rem;
+    border-radius: 1.25rem;
+    padding: 0.625rem;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0px 5px 10px #a163f77a;
+    box-shadow: 0rem 0.313rem 0.625rem #a163f77a;
     border: none;
     background-color: #FE8684;
     color: #FFFF;
@@ -68,7 +68,7 @@
 }
 
 .imagemlogin {
-    max-width: 200px;
+    max-width: 12.5rem;
     width: 60%;
     padding-top: 7%;
     margin-left: auto;
@@ -76,7 +76,7 @@
 }
 
 .logincontainer {
-    max-width: 400px;
+    max-width: 25rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -88,6 +88,78 @@
 
 
 /*pagina de inicial*/
+
+
+.wrapper-pag-inicial{
+    padding: 1.563rem;
+    /* border: 1px solid blue; */
+}
+
+#header{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    padding: 1.25rem;
+    justify-content: center;
+
+}
+
+
+
+#titulo-pag-inicial {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 43.7rem;
+    width: 15rem;
+    align-items: flex-start;
+    /* border: 1px solid red; */
+    padding: 1.25rem;
+    gap: 0.625rem;
+}
+
+.titulo,
+.saldo {
+    color: #333333;
+}
+
+.titulo {
+
+    max-width: 43.7rem;
+    width: 80%;
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+
+
+.saldo {
+  /* border: pink 1px solid; */
+  display: flex;
+  align-self: center;
+  justify-self: baseline;
+}
+
+
+.imgtitulo {
+    box-sizing: border-box;
+    /* border: 1px solid orange; */
+    width: 15rem;
+}
+
+/* #img-pag-inicial-menina{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow-x: visible;
+} */
+
+/* .container-boxes{
+    border: 1px solid green;
+} */
 
 .box {
     margin-right: auto;
@@ -104,50 +176,16 @@
     color: #6F66FC;
     font-style: normal;
     border: 2px solid #7066fc;
-}
-
-.titulo,
-.saldo {
-    color: #333333;
-}
-
-.titulo {
-    margin-top: 50px;
-    max-width: 700px;
-    width: 80%;
-    font-size: larger;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#logintitulo {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 700px;
-    width: 80%;
-    text-align: center;
     align-items: center;
 }
 
-.imgtitulo {
-    margin-top: 50px;
-    margin-top: 5%;
-    position: relative;
-    margin-left: 50%;
-}
-
-.saldo {
-    margin-top: 10%;
-    margin-right: auto;
-    margin-left: auto;
+a {
+    text-decoration: none;
 }
 
 .imagembox {
-    min-width: 50px;
+    width: 5.12rem;
+    height:5.12rem;
 }
 
 .logout {
@@ -158,6 +196,7 @@
     margin-left: auto;
     margin-top: 10%;
     margin-bottom: 10%;
+    font-size: 1.25rem;
 }
 
 h1 {
@@ -168,15 +207,13 @@ h2 {
     margin-top: 5%;
 }
 
-h3 {}
+
 
 h4 {
     margin-top: 5%;
 }
 
-a {
-    text-decoration: none;
-}
+
 
 
 /*Index*/
@@ -196,18 +233,18 @@ a {
 }
 
 .data {
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 1.25rem;
+    padding: 0.625rem;
     color: #6F66FC;
     border-color: #7066fc;
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     max-width: 700px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin-bottom: 0.625rem;
+    margin-top: 1.25rem;
 }
 
 .botaovoltar {
@@ -223,18 +260,19 @@ a {
 /*extrato*/
 
 .movimentacaoextrato {
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
     display: flex;
     flex-direction: column;
-    max-width: 700px;
+    max-width: 43.75rem;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     color: #6F66FC;
-    border: 2px solid #7066fc;
+    border: 0.125rem solid #7066fc;
     list-style: none;
+
 }
 
 .avisomovimentacao {
@@ -264,17 +302,22 @@ a {
 .boxpoupanca {
     margin-right: auto;
     margin-left: auto;
-    max-width: 700px;
+    max-width: 43.75rem;
     width: 80%;
     border-radius: 15px;
-    height: 120px;
+    height: 7.5rem;
     padding: 5%;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0px 5px 10px #7066fc32;
+    box-shadow: 0rem 0.313rem 0.625rem #7066fc32;
     color: #FEFAF2;
     font-style: normal;
-    border: 2px solid #7066fc;
+    border: 0.125rem solid #7066fc;
     background-color: #6F66FC;
 }
+
+/*
+@media screen and (min-width:'800px') {
+
+} */
