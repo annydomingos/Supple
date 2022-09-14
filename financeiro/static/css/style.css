@@ -109,17 +109,15 @@
 .titulo,
 .saldo {
     color: #333333;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
 }
 
 .titulo {
     margin-top: 50px;
     max-width: 700px;
     width: 80%;
-    display: flex;
+    font-size: larger;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #logintitulo {
@@ -164,21 +162,16 @@
 
 h1 {
     color: #6F66FC;
-    text-decoration: none;
 }
 
 h2 {
     margin-top: 5%;
-    text-decoration: none;
 }
 
-h3 {
-    text-decoration: none;
-}
+h3 {}
 
 h4 {
     margin-top: 5%;
-    text-decoration: none;
 }
 
 a {
@@ -249,4 +242,39 @@ a {
     margin-left: auto;
     text-align: center;
     color: #FE8684;
+}
+
+
+/*poupança*/
+
+.listapoupanca {
+    text-decoration: none;
+    font-size: large;
+    color: #333333;
+    list-style: none;
+}
+
+.saldopoupanca {
+    margin-top: 10%;
+    margin-right: auto;
+    margin-left: auto;
+    color: #6F66FC;
+}
+
+.boxpoupanca {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 700px;
+    width: 80%;
+    border-radius: 15px;
+    height: 120px;
+    padding: 5%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px #7066fc32;
+    color: #FEFAF2;
+    font-style: normal;
+    border: 2px solid #7066fc;
+    background-color: #6F66FC;
 }
