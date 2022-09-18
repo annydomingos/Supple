@@ -15,28 +15,31 @@
     <a href="{% url 'pagina_inicial' %}">
         <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
     </a>
-    <div class="titulo">
+
+    <div class="titulogeral">
         <h2>Minhas Poupanças</h2>
-        <a href="{% url 'nova_poupanca' %}">
-            <div class="box ">
-                <h3>Nova<br> Poupança</h3>
-                <img class="imagembox " src="{% static 'img/minhaspoupancas.svg' %}" alt="ilustraçao cofrinho com moedas ">
-            </div>
-        </a>
 
-        {% if lista_poupanca %}
+    </div>
 
-            {% for poupanca in lista_poupanca %}
+    <a href="{% url 'nova_poupanca' %}">
+        <div class="boxpoupanca ">
+            <h3>Nova<br> Poupança</h3>
+            <!--<img class="imagembox " src="{% static 'img/minhaspoupancas.svg' %}" alt="ilustraçao cofrinho com moedas ">
+        </div>
+    </a>
 
-                <ul>
-                    <div class="box ">
+    {% if lista_poupanca %} {% for poupanca in lista_poupanca %}
 
-                        <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-                    </div>
-                </ul>
-            {% endfor %}
+    <ul class="listapoupanca">
+        <div class="box ">
 
-        {% endif %}
+            <li class="listapoupanca">{{ poupanca.nome_poupanca }} <br>
+                <h3 class="saldopoupanca"> R$ {{ poupanca.saldo_poupanca }}</li>
+        </div>
+    </ul>
+
+
+    {% endfor %} {% endif %}
 
 
 

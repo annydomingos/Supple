@@ -12,15 +12,21 @@
 </head>
 
 <body>
-    <div id="logintitulo" class="titulo">
-        <h1>Olá, {{request.user.first_name}}</h1>
-        <h4>Saldo: </h4>
-        <h2>{{ saldo_do_usuario }}</h2>
-    </div>
+    <section id="header">
 
-    <div class=" imgtitulo ">
-        <img src="{% static 'img/avatar.svg' %}" alt="avatar">
-    </div>
+        <div class="titulo">
+            <h1 class="titulo">Olá, {{request.user.first_name}}
+            </h1>
+            <h4 class="saldo">Saldo: </h4>
+            <h2 class="saldo">{{ saldo_do_usuario }}</h2>
+        </div>
+
+        <div class="imgtitulo">
+            <img class="imgtitulo" src="{% static 'img/avatar.svg' %}" alt="avatar">
+        </div>
+
+    </section>
+
 
     <a href="{% url 'index' %}">
         <div class=" box ">
@@ -39,19 +45,21 @@
     <a href="{% url 'extrato' %}">
         <div class="box ">
             <h3>Extrato</h3>
-            <img class="imagembox " src="{% static 'img/extrato.svg' %}" alt="extrato">
+            <img class="imagembox" src="{% static 'img/extrato.svg' %}" alt="extrato">
         </div>
     </a>
 
-    <a href="/ ">
+    <a>
 
         <div class="box " style="border-color: #7066fc; ">
-            <h3>Dicas<br> financeiras</h3>
+            <h3>Dicas<br> financeiras
+                <br>
+                <small>Em breve!</small></h3>
             <img class="imagembox " src="{% static 'img/pessoa_ensimando.png' %}" alt="pessoa ensinando ">
         </div>
+    </a>
 
-
-        <div class="logout "> <a class="logout " href="{% url 'logout' %} ">Deslogar da conta</a></div>
+    <div class="logout "> <a class="logout " href="{% url 'logout' %} ">Deslogar da conta</a></div>
 
 </body>
 
