@@ -40,6 +40,6 @@ class Responsavel(models.Model):
 class Poupanca(models.Model):
   nome_poupanca = models.CharField('Descrição', max_length=40)
   saldo_poupanca = models.DecimalField('Saldo', decimal_places=2, max_digits=10, default=0)
-
+  usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=1)
 
 

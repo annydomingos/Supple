@@ -125,7 +125,7 @@ def pagina_inicial(request):
 
 def poupanca(request):
     if request.user.is_authenticated:
-        lista_poupanca = Poupanca.objects.order_by('-id')
+        lista_poupanca = Poupanca.objects.filter(usuario=request.user).order_by('-id')
         context = {'lista_poupanca' : lista_poupanca}
         return render(request,'poupanca.html', context)
     else:
@@ -133,7 +133,7 @@ def poupanca(request):
 
 def nova_poupanca(request):
     if request.user.is_authenticated:
-        lista_poupanca = Poupanca.objects.order_by('-id')
+        lista_poupanca = Poupanca.objects.filter(usuario=request.user).order_by('-id')
         context = {'lista_poupanca' : lista_poupanca}
         return render(request, "novapoupanca.html", context)
     else:
