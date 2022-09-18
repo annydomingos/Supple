@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,34 +11,29 @@
 </head>
 
 <body>
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
 
-        <h3>Nova Poupança</h3>
+    <div class="titulogeral">
+        <h2>Nova Poupaça</h2>
 
-        <form method="POST" action="/nova_poupanca/submit">
-            {% csrf_token %}
-            <label for="nome_poupanca">Descrição</label>
-            <input type="text" name="nome_poupanca">
+    </div>
 
-            <label for="saldo_poupanca">Saldo</label>
-            <input type="number" name="saldo_poupanca">
 
-            <button type="submit" value='submit'>Salvar</button>
+    <form class="inputcontainer" method="POST" action="/nova_poupanca/submit">
+        {% csrf_token %}
 
-        </form>
+        <input class="indexinput " placeholder="Nome da Poupança" type="text" name="nome_poupanca">
 
-        {% if lista_poupanca %}
 
-        {% for poupanca in lista_poupanca %}
+        <input class="indexinput " placeholder="Valor" type="number" name="saldo_poupanca">
 
-            <ul>
-                <div class="box ">
+        <button class="button" type="submit" value='submit'>Salvar</button>
 
-                    <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-                </div>
-            </ul>
-        {% endfor %}
+    </form>
 
-    {% endif %}
+    {% if lista_poupanca %} {% for poupanca in lista_poupanca %} {% endfor %} {% endif %}
 
 </body>
 
