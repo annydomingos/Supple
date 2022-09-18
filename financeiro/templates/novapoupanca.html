@@ -11,30 +11,29 @@
 </head>
 
 <body>
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
 
-    <h3 class="titulogeral">Nova Poupança</h3>
+    <div class="titulogeral">
+        <h2>Nova Poupaça</h2>
 
-    <form method="POST" action="/nova_poupanca/submit">
+    </div>
+
+
+    <form class="inputcontainer" method="POST" action="/nova_poupanca/submit">
         {% csrf_token %}
-        <label for="nome_poupanca">Descrição</label>
-        <input type="text" name="nome_poupanca">
 
-        <label for="saldo_poupanca">Saldo</label>
-        <input type="number" name="saldo_poupanca">
+        <input class="indexinput " placeholder="Nome da Poupança" type="text" name="nome_poupanca">
 
-        <button type="submit" value='submit'>Salvar</button>
+
+        <input class="indexinput " placeholder="Valor" type="number" name="saldo_poupanca">
+
+        <button class="button" type="submit" value='submit'>Salvar</button>
 
     </form>
 
-    {% if lista_poupanca %} {% for poupanca in lista_poupanca %}
-
-    <ul>
-        <div class="box ">
-
-            <li>{{ poupanca.nome_poupanca }} | {{ poupanca.saldo_poupanca }}</li>
-        </div>
-    </ul>
-    {% endfor %} {% endif %}
+    {% if lista_poupanca %} {% for poupanca in lista_poupanca %} {% endfor %} {% endif %}
 
 </body>
 
