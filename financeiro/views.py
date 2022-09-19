@@ -154,7 +154,7 @@ def nova_poupanca_submit(request):
                     )
                     poup.save()
                     messages.success(request, "Poupança criada com sucesso")
-                    lista_poupanca = Poupanca.objects.filter(usuario=request.user).order_by('-id')
+                    lista_poupanca = Poupanca.objects.order_by('-id')
                     context = {'lista_poupanca' : lista_poupanca}
 
                     return render(request,'novapoupanca.html', context)
