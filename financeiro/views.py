@@ -107,7 +107,7 @@ def logout_user(request):
 
 def extrato(request):
     if request.user.is_authenticated:
-        lista_mov = Movimentacao.objects.order_by('-data')
+        lista_mov = Movimentacao.objects.filter(usuario=request.user).order_by('-data')
         saldo_do_usuario = saldo(request)
         context = {'lista_mov' : lista_mov, 'saldo_do_usuario' : saldo_do_usuario}
         return render(request, 'extrato.html', context)

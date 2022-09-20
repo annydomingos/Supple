@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import django_on_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j(#bqz6wh072!mn_f8^rg6y&=!_%*1#y=32&yuk85(#dcejb_a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -137,4 +139,4 @@ AUTH_USER_MODEL = 'usuario.Usuario'
 
 LOGIN_REDIRECT_URL = '/'
 
-# LOGOUT_REDIRECT = '/accounts/login'
+django_on_heroku.settings(locals())
