@@ -1,4 +1,6 @@
-{% load bootstrap5 %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,38 +9,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
-    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+
+
 </head>
 
 <body>
-    {% bootstrap_javascript%}
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
 
-    <h1>Olá, {{request.user.username}}</h1>
-    <h3>saldo:</h3>
-    {% bootstrap_messages %}
-    <h3>Adicionar movimentação:</h3>
-    <form action='/submit/' method='POST'>
-        {% csrf_token %}
+    <div class="tituloextrato">
 
-
-        <p><label>Valor </label></p>
-        <input name="valor" type="number" step="0.01" required>
-
-        {% comment %} <p><label>Tipo movimenção</label></p> {% endcomment %}
-
-        <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
-        <input name="carteira" style="display: none;" value="1" type="number">
-
-        <p><label for="descricao_gasto">Descrição</label></p>
-        <input name="descricao_gasto" type="text">
-
-        <button type="submit" value='submit'>Enviar</button>
-    </form>
+        <h2 class="titulo">Adicionar movimentação</h2>
+        <h3 class="titulo">saldo:{{ saldo_do_usuario }}</h2>
 
 
-    {% if request.user.is_authenticated %}
-        <a href="/logout/">Logout</a>
-    {% endif %}
+
+    </div>
+
+
+
+
+    <div class="inputcontainer">
+        <form action='/submit/' method='POST'>
+            {% csrf_token %}
+
+
+
+            <input class="indexinput " placeholder="Valor " name="valor" placeholder="Valor " type="number" step="0.01" required>
+
+
+
+            <select class="indexinput " name="tipo_movimentacao" required>
+                <option name="entrada">Entrada</option>
+                <option name="despesa">Despesa</option>
+            </select>
+
+            <input name="usuario" style="display: none;" value="{{request.user.id}}" type="number">
+            <input name="carteira" style="display: none;" value="{{carteira.id}}" type="number">
+
+
+            <input class="indexinput " placeholder="Descrição " name="descricao" type="text" required>
+
+
+            <input class="data " placeholder="Data " name="data" type="date" required>
+
+
+            <button class="button " type="submit" value='submit'>Enviar</button>
+        </form>
+    </div>
+
+
 
 </body>
 

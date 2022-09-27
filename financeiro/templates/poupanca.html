@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poupança</title>
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+
+</head>
+
+<body>
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
+
+    <div class="titulogeral">
+        <h2>Minhas Poupanças</h2>
+
+    </div>
+
+    <a href="{% url 'nova_poupanca' %}">
+        <div class="boxpoupanca ">
+            <h3>Nova<br> Poupança</h3>
+            <!--<img class="imagembox " src="{% static 'img/minhaspoupancas.svg' %}" alt="ilustraçao cofrinho com moedas ">-->
+        </div>
+    </a>
+
+    {% if lista_poupanca %} {% for poupanca in lista_poupanca %}
+
+    <ul class="listapoupanca">
+        <div class="box ">
+
+            <li class="listapoupanca">{{ poupanca.nome_poupanca }} <br>
+                <h3 class="saldopoupanca"> R$ {{ poupanca.saldo_poupanca }}</li>
+        </div>
+    </ul>
+
+
+    {% endfor %} {% endif %}
+
+
+
+
+
+
+</body>
+
+</html>

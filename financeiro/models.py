@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from usuario.models import Usuario
 # Create your models here.
@@ -13,8 +14,9 @@ class Movimentacao(models.Model):
   valor = models.DecimalField('Valor', blank=False, null=False, decimal_places=2, max_digits=10)
   usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
-  tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='entrada')
-
+  tipo_movimentacao = models.CharField(max_length=7, choices=TIPO_MOVIMENTACAO_CHOICES, default='Entrada')
+  descricao = models.CharField('Descrição', max_length=255, blank=True, null=True)
+  data = models.DateField('Data', default=timezone.now())
 
   def __str__(self) :
     return str(self.valor)
@@ -35,12 +37,10 @@ class Responsavel(models.Model):
   def __str__(self):
     return str(self.filho)
 
+class Poupanca(models.Model):
+  nome_poupanca = models.CharField('Descrição', max_length=40)
+  saldo_poupanca = models.DecimalField('Saldo', decimal_places=2, max_digits=10, default=0)
+  
 
-class Descricao_gasto(models.Model):
-  valor = models.ForeignKey(Movimentacao, on_delete=models.CASCADE)
-  descricao = models.CharField('Descrição', max_length=50)
-  usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-  carteira = models.ForeignKey("Carteira", verbose_name='Carteira', on_delete=models.CASCADE)
 
-  def __str__(self):
-   return self.usuario
+

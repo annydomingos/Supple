@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap');
+ :root {
+    --roxoclaro: #A163F7;
+    --roxoescuro: #724D93;
+    --vermelho: #FE8684;
+    --preto: #333333;
+    --roxoazulado: #6F66FC;
+    --bege: #FEFAF2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: josefin sans;
+}
+
+
+/*pagina de login*/
+
+.logologin {
+    max-width: 31.25rem;
+    width: 50%;
+    margin-top: 2.5rem;
+}
+
+.titulologin {
+    font-weight: 400;
+    font-size: medium;
+    margin-top: 5%;
+    color: #333333;
+}
+
+.inputlogin {
+    border-radius: 1.25rem;
+    padding: 0.625rem;
+    box-shadow: 0rem 0.313rem 0.625rem #7066fc32;
+    color: #6F66FC;
+    border-color: #7066fc;
+}
+
+.formlogin {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25;
+    max-width: 18.75rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 2.5rem;
+}
+
+.button {
+    max-width: 150;
+    width: 25%;
+    height: 1.875rem;
+    border-radius: 1.25rem;
+    padding: 0.625rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0rem 0.313rem 0.625rem #a163f77a;
+    border: none;
+    background-color: #FE8684;
+    color: #FFFF;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.imagemlogin {
+    max-width: 500px;
+    width: 80%;
+    padding: 3rem;
+    margin-right: auto;
+}
+
+.logincontainer {
+    max-width: 25rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 10%;
+}
+
+
+/*pagina de inicial*/
+
+.box {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 43.75rem;
+    width: 80%;
+    padding: 2rem;
+    border-radius: 0.938rem;
+    height: 7.5rem;
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px #7066fc32;
+    color: #6F66FC;
+    font-style: normal;
+    border: 2px solid #7066fc;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 43.75rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.titulo .saldo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.tituloextrato {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3.65rem;
+    justify-content: left;
+    flex-direction: column;
+    max-width: 43.75rem;
+    width: 80%;
+}
+
+#header div {
+    margin-top: 3.65rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgtitulo div {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 20%;
+}
+
+.imagembox div {}
+
+.logout {
+    font-style: normal;
+    color: #6F66FC;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+h1 {
+    color: #6F66FC;
+}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+a {
+    text-decoration: none;
+}
+
+
+/*Index*/
+
+.indexinput {
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 43.75rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: #6F66FC;
+    border-color: #7066fc;
+}
+
+.data {
+    border-radius: 20px;
+    padding: 10px;
+    color: #6F66FC;
+    border-color: #7066fc;
+    display: flex;
+    gap: 20px;
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.botaovoltar {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.inputcontainer {
+    text-align: center;
+}
+
+.titulogeral {
+    margin-top: 50px;
+    max-width: 700px;
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/*extrato*/
+
+.movimentacaoextrato {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: #6F66FC;
+    border: 2px solid #7066fc;
+    list-style: none;
+}
+
+.avisomovimentacao {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color: #FE8684;
+}
+
+
+/*poupança*/
+
+.listapoupanca {
+    text-decoration: none;
+    font-size: large;
+    color: #333333;
+    list-style: none;
+}
+
+.saldopoupanca {
+    margin-top: 10%;
+    margin-right: auto;
+    margin-left: auto;
+    color: #6F66FC;
+}
+
+.boxpoupanca {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 700px;
+    width: 80%;
+    border-radius: 15px;
+    height: 120px;
+    padding: 5%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px #7066fc32;
+    color: #FEFAF2;
+    font-style: normal;
+    border: 2px solid #7066fc;
+    background-color: #6F66FC;
+}

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Poupança</title>
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+</head>
+
+<body>
+    <a href="{% url 'pagina_inicial' %}">
+        <img class="botaovoltar" src="{% static 'img/voltar.svg' %}" alt="botao voltar ">
+    </a>
+
+    <div class="titulogeral">
+        <h2>Nova Poupaça</h2>
+
+    </div>
+
+
+    <form class="inputcontainer" method="POST" action="/nova_poupanca/submit">
+        {% csrf_token %}
+
+        <input class="indexinput " placeholder="Nome da Poupança" type="text" name="nome_poupanca">
+
+
+        <input class="indexinput " placeholder="Valor" type="number" name="saldo_poupanca">
+
+        <button class="button" type="submit" value='submit'>Salvar</button>
+
+    </form>
+
+    {% if lista_poupanca %} {% for poupanca in lista_poupanca %} {% endfor %} {% endif %}
+
+</body>
+
+</html>

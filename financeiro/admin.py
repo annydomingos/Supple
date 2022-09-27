@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Movimentacao, Carteira, Responsavel, Descricao_gasto
+from .models import Movimentacao, Carteira, Responsavel, Poupanca
 
 # Register your models here.
 
 
 class MovimentacaoAdmin(admin.ModelAdmin):
-  list_display = ('valor', 'usuario', 'carteira','tipo_movimentacao')
+  list_display = ('valor', 'usuario', 'carteira','tipo_movimentacao', 'descricao', 'data')
 
 
 admin.site.register(Movimentacao, MovimentacaoAdmin)
@@ -21,11 +21,10 @@ admin.site.register(Carteira, CarteiraAdmin)
 class ResponsavelAdmin(admin.ModelAdmin):
   list_display = ('filho', 'responsavel', 'parentesco')
 
-
-
 admin.site.register(Responsavel, ResponsavelAdmin)
 
-class Descricao_gastoAdmin(admin.ModelAdmin):
-  list_display = ('valor', 'descricao', 'usuario', 'carteira')
 
-admin.site.register(Descricao_gasto, Descricao_gastoAdmin)
+class PoupancaAdmin(admin.ModelAdmin):
+  list_display = ('nome_poupanca', 'saldo_poupanca')
+
+admin.site.register(Poupanca, PoupancaAdmin)
